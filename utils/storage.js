@@ -1,15 +1,27 @@
 import { MongoClient } from "mongodb";
+import { fileURLToPath } from "url";
+import path from "path";
+import fs from "fs";
+import mongoose from "mongoose";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const certPath = path.resolve(__dirname, "../certs/isrgrootx1.pem");
 
 const uri =
   "mongodb+srv://aaleshpatilinft:AaAyAdu2EAmWsL7I@cluster0.snq4o.mongodb.net/?retryWrites=true&w=majority&appName=cluster0"; // Replace with your connection string
 
-const client = new MongoClient(uri, {
-  ssl: true,
-  sslValidate: true,
-  sslCA: [fs.readFileSync("../certs/isrgrootx1.pem")],
-  tls: true,
-  tlsAllowInvalidCertificates: false,
-});
+  const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    tls: true,
+    tlsAllowInvalidCertificates: true,
+    tlsCAFile: certPath
+};
+
+
+const client = new MongoClient(uri, options);
 
 let db;
 
