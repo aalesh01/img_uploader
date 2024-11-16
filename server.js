@@ -4,7 +4,6 @@ import csv from "csv-parser";
 import fs from "fs";
 import { v4 as uuidv4 } from "uuid";
 import { connectToDatabase, db } from './utils/storage.js';
-import { validateCsv } from "./utils/validateCsv.js";
 import { processImage } from "./workers/imageProcessor.js";
 
 connectToDatabase();
