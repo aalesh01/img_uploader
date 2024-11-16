@@ -15,10 +15,9 @@ const uri =
   const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    tls: true,
-    tlsAllowInvalidCertificates: true,
-    tlsCAFile: certPath
-};
+    ssl: true,
+    tlsAllowInvalidCertificates: false, // Ensure it's not set to true unless necessary
+  };
 
 
 const client = new MongoClient(uri, options);
