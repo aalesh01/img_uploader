@@ -1,0 +1,17 @@
+{
+  "name": "backend_assign_16nov2024",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "gridfs-stream": "^1.1.1",
+    "mongodb": "^4.17.2"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
